@@ -3,14 +3,15 @@
 #include <unistd.h>
 // #include "catt.h"
 
-#define CAT_HEIGHT 3
-#define CAT_LENGTH 7
+#define CAT_HEIGHT 5
+#define CAT_LENGTH 50
+#define CAT_FRAMES 4
 
 void	init_screen(void);
 void	close_screen(void);
 void	run_animation(void);
-int		draw_cat(int y, int x);
-int		draw_text_safe(int y, int x, char *str);
+int		draw_cat(int y, int x, int frame);
+int		draw_text_safe(int y, int x, const char *str);
 
 /*
 typedef struct s_options
@@ -32,7 +33,7 @@ int	main() //後でコマンドライン引数入れる.
 	return(0);
 }
 
-void	init_screen()
+void	init_screen(void)
 {
 	initscr();
 	signal(SIGINT, SIG_IGN);
@@ -53,13 +54,15 @@ void	run_animation(void)
 {
 	int x;
 	int	y;
+	int	frame;
 
-	y = LINES / 2;
+	y = LINES / 2 - CAT_HEIGHT / 2;
 
 	for (x = COLS - 1; ; x--)
 	{
+		frame = ((COLS - x) / 2) % CAT_FRAMES;
 		clear();
-		if (draw_cat(y, x) ==ERR)
+		if (draw_cat(y, x, frame) ==ERR)
 			break;
 		getch();
 		refresh();
@@ -67,26 +70,54 @@ void	run_animation(void)
 	}
 }
 
-int	draw_cat(int y, int x)
+int	draw_cat(int y, int x, int frame)
 {
-	static char *cat[CAT_HEIGHT + 1] =
+	int i;
+	static char *cat[CAT_FRAMES][CAT_HEIGHT] =
 	{
-		" /\\_/\\ ",
-		"( o.o )",
-		" > ^ < ",
-		"       "
+{
+		" |\\____/|          // ",
+		" \\_=w=_/__________// ",
+		" |                /    ",
+		" \\  __ ____   ___\\    ",
+		" //  \\\\    \\\\  // ",
+	},
+	{
+		" |\\____/|          //  ",
+		" \\_=w=_/__________// ",
+		" |                /    ",
+		" \\  __ ____   ___\\    ",
+		" ||  ||    ||  || ",
+	},
+	{
+		" |\\____/|         ||   ",
+		" \\_=w=_/__________|| ",
+		" |                /    ",
+		" \\  __ ____   ___\\    ",
+		" \\\\  //    //  \\\\ ",
+	},
+	{
+		" |\\____/|         ||   ",
+		" \\_=w=_/__________|| ",
+		" |                /    ",
+		" \\  __ ____   ___\\    ",
+		" ||  ||    ||  || ",
+	}
 	};
 
 	if (x < -CAT_LENGTH)
 		return (ERR);
-	
-	for (int i = 0; i <= CAT_HEIGHT; ++i)
-		draw_text_safe(y + i, x, cat[i]);
+	i = 0;
+	while (i < CAT_HEIGHT)
+	{
+		draw_text_safe(y + i, x, cat[frame][i]);
+		i++;
+	}
 
 	return (OK);
 }
 
-int	draw_text_safe(int y, int x, char *str)
+int	draw_text_safe(int y, int x, const char *str)
 {
 	int	i;
 
