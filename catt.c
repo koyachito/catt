@@ -1,34 +1,13 @@
 #include <ncurses.h>
 #include <signal.h>
 #include <unistd.h>
-// #include "catt.h"
+#include "catt.h"
 
-#define CAT_HEIGHT 5
-#define CAT_LENGTH 50
-#define CAT_FRAMES 4
 
-void	init_screen(void);
-void	close_screen(void);
-void	run_animation(void);
-int		draw_cat(int y, int x, int frame);
-int		draw_text_safe(int y, int x, const char *str);
-
-/*
-typedef struct s_options
+int	main(void) 
 {
-	int meow;
-	int dog;
-	int count;
-} t_options;
-*/
-
-int	main() //後でコマンドライン引数入れる.
-{
-	// t_options opt;
-
-	// opt = parse_options(argc, argv);
 	init_screen();
-	run_animation(); //引数optに変更する.
+	run_animation(); 
 	close_screen();
 	return(0);
 }
@@ -73,7 +52,7 @@ void	run_animation(void)
 int	draw_cat(int y, int x, int frame)
 {
 	int i;
-	static char *cat[CAT_FRAMES][CAT_HEIGHT] =
+	static const char *cat[CAT_FRAMES][CAT_HEIGHT] =
 	{
 {
 		" |\\____/|          // ",
@@ -120,6 +99,9 @@ int	draw_cat(int y, int x, int frame)
 int	draw_text_safe(int y, int x, const char *str)
 {
 	int	i;
+
+	if (str == NULL)
+		return (ERR);
 
 	i = 0;
 	while (str[i] != '\0')

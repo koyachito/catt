@@ -20,6 +20,7 @@ Implemented:
 * Safe drawing when the cat moves off-screen
 * ncurses-based screen control
 * Makefile build
+* Local install and uninstall targets
 
 Planned:
 
@@ -27,7 +28,6 @@ Planned:
 * `-n` option: show multiple cats
 * `-d` option: dog mode
 * Man page
-* Japanese README
 
 ## Requirements
 
@@ -56,18 +56,37 @@ make
 
 The cat slides from the right side of the terminal to the left.
 
+## Install
+
+```bash
+sudo make install
+```
+
+After installation, you can run `catt` from any directory:
+
+```bash
+catt
+```
+
+## Uninstall
+
+```bash
+sudo make uninstall
+```
+
 ## Project structure
 
 ```text
 catt/
 ├── README.md
+├── README-jp.md
+├── LICENSE
 ├── Makefile
+├── .gitignore
 ├── catt.c
-├── demo.gif
-└── .gitignore
+├── catt.h
+└── demo.gif
 ```
-
-Additional files such as `catt.h`, man pages, and Japanese documentation may be added as the project grows.
 
 ## Development notes
 
@@ -88,12 +107,11 @@ The body stays mostly fixed while the legs change between frames to create a wal
 
 * [x] Slide a static cat from right to left
 * [x] Add walking animation frames
+* [x] Add install target
 * [ ] Add `-m` option for `meow`
 * [ ] Add `-n` option for multiple cats
 * [ ] Add `-d` option for dog mode
 * [ ] Add man page
-* [ ] Add install target
-* [ ] Add Japanese README
 
 ## License
 
