@@ -79,7 +79,7 @@ sudo make uninstall
 ```text
 catt/
 ├── README.md
-├── README-jp.md
+├── README-ja.md
 ├── LICENSE
 ├── Makefile
 ├── .gitignore
