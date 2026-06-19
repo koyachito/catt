@@ -1,7 +1,7 @@
 #ifndef CATT_H
 # define CATT_H
 
-# define CAT_HEIGHT 6
+# define CAT_HEIGHT 5
 # define CAT_LENGTH 25
 # define CAT_FRAMES 4
 
