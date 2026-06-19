@@ -4,7 +4,7 @@
 
 実行すると、猫がターミナル上を右から左へ歩きます。
 
-[`sl`](https://github.com/mtoyoda/sl) に影響を受けた、猫版のジョークCLIです。
+[`sl`](https://github.com/mtoyoda/sl) に影響を受け、一部その構造を参考にして作った、猫版のジョークCLIです。
 
 ![catt demo](demo.gif)
 
