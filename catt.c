@@ -1,3 +1,17 @@
+
+/*
+ * catt.c
+ *
+ * Cat-themed terminal animation command.
+ * Inspired by and partly derived from SL(1) by Toyoda Masashi.
+ *
+ * Original SL(1):
+ * Copyright 1993,1998,2014 Toyoda Masashi (mtoyoda@acm.org)
+ *
+ * Additional code and modifications:
+ * Copyright (c) 2026 koyachito
+ */
+
 #include <ncurses.h>
 #include <signal.h>
 #include <unistd.h>
