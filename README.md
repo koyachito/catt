@@ -116,3 +116,8 @@ The body stays mostly fixed while the legs change between frames to create a wal
 ## License
 
 MIT License
+
+This project is inspired by and partly derived from [`sl`](https://github.com/mtoyoda/sl) by Toyoda Masashi.
+
+Portions derived from SL(1) are distributed under the original SL license.
+Original cat ASCII art, documentation, and additional modifications are licensed under the MIT License.
