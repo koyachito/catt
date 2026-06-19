@@ -115,5 +115,9 @@ catt/
 
 ## ライセンス
 
-MIT License
+このプロジェクトは、Toyoda Masashi 氏による [`sl`](https://github.com/mtoyoda/sl) に影響を受け、一部その構造を参考にしています。
+
+SL(1) に由来する部分は、元の SL ライセンスに従います。
+
+猫のASCIIアート、ドキュメント、追加実装および改変部分は MIT License で公開しています。
 
