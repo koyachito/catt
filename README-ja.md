@@ -115,6 +115,8 @@ catt/
 
 ## ライセンス
 
+混合ライセンスです。詳細は [LICENSE](LICENSE) を参照してください。
+
 このプロジェクトは、Toyoda Masashi 氏による [`sl`](https://github.com/mtoyoda/sl) に影響を受け、一部その構造を参考にしています。
 
 SL(1) に由来する部分は、元の SL ライセンスに従います。
