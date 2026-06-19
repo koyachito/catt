@@ -55,7 +55,7 @@ void	run_animation(void)
 	{
 		frame = ((COLS - x) / 2) % CAT_FRAMES;
 		clear();
-		if (draw_cat(y, x, frame) ==ERR)
+		if (draw_cat(y, x, frame) == ERR)
 			break;
 		getch();
 		refresh();
